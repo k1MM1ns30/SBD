@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Overlooked Potential of Everyday Objects — Adrian Madlener</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="../assets/page_motion.js" defer></script>
+</head>
+<body>
+
+  <!-- 상단 내비게이션: 아치 / 원(현재 갤러리) / 네모 -->
+  <nav class="nav" aria-label="Main">
+    <a class="nav__btn" href="../entry1/entry1.html" aria-label="Arch gallery">
+      <svg viewBox="0 0 19 19" width="19" height="19"><path d="M0 19V9.5a9.5 9.5 0 0 1 19 0V19Z"/></svg>
+    </a>
+    <a class="nav__btn is-current" href="../index/index.html" aria-label="Circle gallery" aria-current="page">
+      <svg viewBox="0 0 19 19" width="19" height="19"><circle cx="9.5" cy="9.5" r="9.5"/></svg>
+    </a>
+    <a class="nav__btn" href="../entry2/entry2.html" aria-label="Square gallery">
+      <svg viewBox="0 0 19 19" width="19" height="19"><rect width="19" height="19"/></svg>
+    </a>
+  </nav>
+
+  <!-- 제목/저자는 왼쪽, 본문은 오른쪽. data.js에서 내용을 수정하세요. -->
+  <article class="essay" aria-labelledby="essay-title">
+    <header class="essay__title">
+      <h1 id="essay-title"></h1>
+      <p id="essay-author"></p>
+    </header>
+    <div class="essay__content">
+      <div class="essay__body" id="essay-body"></div>
+      <footer class="essay__date" id="essay-date" hidden></footer>
+    </div>
+  </article>
+  <noscript>Enable JavaScript to display the article.</noscript>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

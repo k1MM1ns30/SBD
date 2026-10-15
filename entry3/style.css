@@ -1,0 +1,99 @@
+/* =========================================================
+   entry3 — 글 시리즈 공통 레이아웃
+   ========================================================= */
+
+:root {
+  --bg: #e2e2e2;
+  --ink: #000;
+  --sans: "IBM Plex Sans", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- 내비게이션 ---------- */
+.nav {
+  position: fixed;
+  top: 38px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 20;
+}
+.nav__btn { display: block; line-height: 0; transition: opacity 200ms; }
+.nav__btn svg { fill: var(--ink); }
+.nav__btn:hover { opacity: 0.5; }
+.nav__btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+/* ---------- 글: 왼쪽 메타데이터 / 오른쪽 본문 ---------- */
+.essay {
+  display: grid;
+  grid-template-columns: 1fr 727px 1fr;
+  padding: 256px 0 120px;
+}
+.essay__title {
+  grid-column: 1;
+  justify-self: start;
+  align-self: start;
+  /* 1713px 화면에서 148px, 좁아지면 본문과 겹치지 않게 줄어듦 */
+  margin-left: max(16px, min(148px, calc((100vw - 727px) / 2 - 260px)));
+  white-space: normal;
+  max-width: calc(100% - 32px);
+  overflow-wrap: anywhere;
+  font-size: 24px;
+  line-height: 33px;
+  font-weight: 700;
+  position: sticky;
+  top: 120px;
+}
+.essay__body {
+  grid-column: 2;
+  font-size: 20px;
+  line-height: 20px;
+}
+.essay__body p + p { margin-top: 20px; }
+
+/* 노트북보다 작은 화면: 제목을 본문 위로 */
+@media (max-width: 1280px) {
+  .essay {
+    grid-template-columns: 1fr minmax(0, 727px) 1fr;
+    padding-top: 140px;
+    row-gap: 40px;
+  }
+  .essay__title { grid-column: 2; margin-left: 0; position: static; }
+  .essay__body { grid-row: 2; }
+}
+
+/* 모바일 */
+@media (max-width: 760px) {
+  .essay { grid-template-columns: 16px 1fr 16px; padding-top: 110px; }
+  .essay__title { font-size: 22px; line-height: 28px; white-space: normal; }
+  .essay__body { font-size: 17px; line-height: 22px; }
+  .essay__body p + p { margin-top: 18px; }
+}
+
+/* 긴 제목과 직접 입력한 본문의 줄바꿈을 지원합니다. */
+.essay__title h1, .essay__title p { font: inherit; }
+.essay__body { min-width: 0; overflow-wrap: anywhere; }
+.essay__body p { white-space: pre-line; }
+@media (max-width: 1280px) { .essay__title { max-width: 100%; } }
+
+/* 본문과 별개의 날짜 데이터. 같은 본문 열 아래 표시. */
+.essay__content { grid-column: 2; grid-row: 1; min-width: 0; }
+.essay__date {
+  margin-top: 20px;
+  font-size: 20px;
+  line-height: 20px;
+  overflow-wrap: anywhere;
+}
+.essay__date[hidden] { display: none; }
+@media (max-width: 1280px) { .essay__content { grid-row: 2; } }
+@media (max-width: 760px) {
+  .essay__date { margin-top: 18px; font-size: 17px; line-height: 22px; }
+}

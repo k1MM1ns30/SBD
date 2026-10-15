@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Circle — Approach to What?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="../assets/page_motion.js"></script>
+</head>
+<body>
+
+  <!-- 상단 내비게이션: 아치 / 원(현재 갤러리) / 네모 -->
+  <nav class="nav" aria-label="Main">
+    <a class="nav__btn" href="../entry1/entry1.html" aria-label="Arch gallery">
+      <svg viewBox="0 0 19 19" width="19" height="19"><path d="M0 19V9.5a9.5 9.5 0 0 1 19 0V19Z"/></svg>
+    </a>
+    <a class="nav__btn is-current" href="../index/index.html" aria-label="Circle gallery" aria-current="page">
+      <svg viewBox="0 0 19 19" width="19" height="19"><circle cx="9.5" cy="9.5" r="9.5"/></svg>
+    </a>
+    <a class="nav__btn" href="../entry2/entry2.html" aria-label="Square gallery">
+      <svg viewBox="0 0 19 19" width="19" height="19"><rect width="19" height="19"/></svg>
+    </a>
+  </nav>
+
+  <!-- 사진 띠 + 확대 -->
+  <main class="gallery" id="gallery">
+    <div class="strip" id="strip"></div>
+    <p class="gallery__status" id="status" role="status">Loading photos…</p>
+    <div class="quote" id="quote" aria-live="polite">
+      <a class="quote__link" id="quote-link" tabindex="-1">
+        <span id="quote-text"></span>
+        <small id="quote-author"></small>
+      </a>
+    </div>
+  </main>
+
+  <script src="../assets/data.js"></script>
+  <script src="../assets/quotes.js"></script>
+  <script src="../index/index.js"></script>
+</body>
+</html>
