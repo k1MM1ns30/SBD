@@ -55,9 +55,9 @@ body {
 .essay__body {
   grid-column: 2;
   font-size: 20px;
-  line-height: 20px;
+  line-height: 1.4;
 }
-.essay__body p + p { margin-top: 20px; }
+.essay__body p + p { margin-top: 30px; }
 
 /* 노트북보다 작은 화면: 제목을 본문 위로 */
 @media (max-width: 1280px) {
@@ -74,7 +74,7 @@ body {
 @media (max-width: 760px) {
   .essay { grid-template-columns: 16px 1fr 16px; padding-top: 110px; }
   .essay__title { font-size: 22px; line-height: 28px; white-space: normal; }
-  .essay__body { font-size: 17px; line-height: 22px; }
+  .essay__body { font-size: 17px; line-height: 1.4; }
   .essay__body p + p { margin-top: 18px; }
 }
 
